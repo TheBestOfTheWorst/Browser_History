@@ -1,0 +1,40 @@
+﻿<Window x:Class="Browser_History.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Browser_History"
+        mc:Ignorable="d" Background="Aquamarine"
+        Title="Browser History" WindowStartupLocation="CenterScreen"
+        Height="450" Width="800"
+        MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Select browser:" FontFamily="Arial" FontSize="20"/>
+        <ComboBox Grid.Column="1" Name="cbBrowsers"  Height="30" Width="200" FontFamily="Arial" FontSize="20" SelectionChanged="cbBrowsers_SelectionChanged">
+            <ComboBoxItem>Google Chrome</ComboBoxItem>
+            <ComboBoxItem>Mozilla Firefox</ComboBoxItem>
+            <ComboBoxItem>Internet Explorer</ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Column="2" Name="btUpdate" Content="Update" Height="30" Width="80" Click="btUpdate_Click"/>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Name="dgBrowserData" Grid.ColumnSpan="3" IsReadOnly="True" Margin="5" HeadersVisibility="Column" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Title" Binding="{Binding Title}"/>
+                <DataGridTextColumn Width="1*" Header="URL" Binding="{Binding Url}"/>
+                <DataGridTextColumn Width="1*" Header="Last Visit" Binding="{Binding LastVisit}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>
